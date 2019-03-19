@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HexGraphComponent } from './hex-graph/hex-graph.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HexGraphComponent
   ],
   imports: [
     BrowserModule,
