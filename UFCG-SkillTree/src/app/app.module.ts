@@ -3,18 +3,26 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HexGraphComponent } from './hex-graph/hex-graph.component';
+import { beeHiveGraphComponent } from './beehive-graph/beehive-graph.component';
+import { Routes, RouterModule } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path:'./', component: AppComponent },
+  { path: 'beehive', component: beeHiveGraphComponent }
+]
 
 @NgModule({
   declarations: [
     AppComponent,
-    HexGraphComponent
+    beeHiveGraphComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(appRoutes, { enableTracing: true})
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+}
