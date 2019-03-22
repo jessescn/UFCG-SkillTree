@@ -1,0 +1,38 @@
+.profile{
+    float: left;
+    height: calc(100vh - 50px);
+    width: 240px;
+    background-color: #b1d9ee;
+    border-right: 2px solid #1e6995 ;
+    box-shadow: 0px 3px 5px grey;
+}
+
+#username{
+    text-align: center;
+    font-size: 25px;
+}
+
+.userImage{
+    border: 1px solid black;
+    height: 20vh;
+}
+
+.level{
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.levelBar{
+    margin-left: 10px;
+}
+
+.empty{
+    border: 1px solid black;
+    height: 20vh;
+}
+
+.badgets{
+    border: 1px solid black;
+    height: 33vh; 
+}

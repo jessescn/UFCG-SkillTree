@@ -1,14 +1,9 @@
 #menubar{
     height: 50px; 
-    background-color: #FF9225;
+    background-color:  #1e6995;
     box-shadow: 0px 2px 5px grey;
 }
 
-.circle:before {
-    content: ' \25CF';
-    font-size: 55px;
-    color: #A4A4A4;
-}
 .di{
     display: inline;
 }
@@ -26,7 +21,7 @@
     font-size: 30px;
 }
 
-.img{
+img{
     margin-left: 10px;
     margin-top: 10px;
     height: 30px;

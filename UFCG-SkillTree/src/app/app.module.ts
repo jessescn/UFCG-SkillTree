@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { beeHiveGraphComponent } from './beehive-graph/beehive-graph.component';
 import { Routes, RouterModule } from '@angular/router';
 import { MenubarComponent } from './menubar/menubar.component';
+import { ProfileBarComponent } from './profile-bar/profile-bar.component';
 
 const appRoutes: Routes = [
   { path:'./', component: AppComponent },
@@ -16,7 +17,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     beeHiveGraphComponent,
-    MenubarComponent
+    MenubarComponent,
+    ProfileBarComponent
   ],
   imports: [
     BrowserModule,
