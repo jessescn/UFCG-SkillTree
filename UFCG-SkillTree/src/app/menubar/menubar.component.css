@@ -1,0 +1,49 @@
+#menubar{
+    height: 50px; 
+    background-color: #FF9225;
+    box-shadow: 0px 2px 5px grey;
+}
+
+.circle:before {
+    content: ' \25CF';
+    font-size: 55px;
+    color: #A4A4A4;
+}
+.di{
+    display: inline;
+}
+
+.logo-content{
+    color: white;
+}
+
+.ufcg-logo{
+    font-size: 15px;
+}
+
+.logo{
+    margin-left: 10px;
+    font-size: 30px;
+}
+
+.img{
+    margin-left: 10px;
+    margin-top: 10px;
+    height: 30px;
+}
+
+.tree{
+    font-size: 40px;
+}
+
+.search{
+    float: right;
+}
+
+
+input{
+    height: 25px;
+    width: 300px;
+    margin: 10px 100px 0px 0px; 
+}
+
