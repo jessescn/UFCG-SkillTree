@@ -3,13 +3,16 @@ import * as d3 from 'd3';
 
 export class Node implements d3.SimulationNodeDatum {
   index?: number;
+
   x: number;
   y: number;
   r: number = 50;
-  disciplina: string;
 
+  disciplina: string;
+  periodo = Math.floor(Math.random() * 10);
   id: string;
-  linkCount: number = Math.floor(Math.random() * 30);
+  linkCount: number = Math.floor(Math.random() * 10);
+  childrens: Node[] = [];
 
   constructor(id, x, y, disciplina) {
     this.id = id;

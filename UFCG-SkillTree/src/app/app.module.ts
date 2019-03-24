@@ -13,6 +13,7 @@ import { D3Service, D3_DIRECTIVES } from './graph/d3';
 import { GraphComponent } from './graph/visuals/graph/graph.component';
 import { SHARED_VISUALS } from './graph/visuals/shared';
 import { NetworkComponent } from './graph/network/network.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const appRoutes: Routes = [
@@ -35,6 +36,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes, { enableTracing: true})
   ],
   providers: [ D3Service ],
