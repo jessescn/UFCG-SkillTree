@@ -1,0 +1,13 @@
+<svg:g [attr.transform]="'translate(' + node.x + ',' + node.y + ')'" id="nodeContainer">
+    <svg:path 
+        [attr.d]='path'
+        [style.fill]='node.color' class="disciplina">
+    </svg:path>
+    <!-- <svg:path [attr.d]='path'
+              [style.stroke]='orange' [style.fill]='blue'>    
+    </svg:path> -->
+    <svg:text
+        class="node-name" [style.stroke]="black">
+    {{node.disciplina}}
+    </svg:text>
+</svg:g>

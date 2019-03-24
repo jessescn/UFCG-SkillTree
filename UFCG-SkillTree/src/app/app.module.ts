@@ -12,6 +12,7 @@ import { D3Service, D3_DIRECTIVES } from './graph/d3';
 
 import { GraphComponent } from './graph/visuals/graph/graph.component';
 import { SHARED_VISUALS } from './graph/visuals/shared';
+import { NetworkComponent } from './graph/network/network.component';
 
 
 const appRoutes: Routes = [
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
     ProfileBarComponent,
     ...SHARED_VISUALS,
     ...D3_DIRECTIVES,
-    GraphComponent
+    GraphComponent,
+    NetworkComponent
 
   ],
   imports: [

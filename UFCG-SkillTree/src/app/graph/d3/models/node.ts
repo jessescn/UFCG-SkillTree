@@ -2,32 +2,24 @@ import APP_CONFIG from '../../../app.config';
 import * as d3 from 'd3';
 
 export class Node implements d3.SimulationNodeDatum {
-  // optional - defining optional implementation properties - required for relevant typing assistance
   index?: number;
-  x?: number;
-  y?: number;
-  vx?: number;
-  vy?: number;
-  fx?: number | null;
-  fy?: number | null;
+  x: number;
+  y: number;
+  r: number = 50;
+  disciplina: string;
 
   id: string;
-  linkCount: number = 0;
+  linkCount: number = Math.floor(Math.random() * 30);
 
-  constructor(id) {
+  constructor(id, x, y, disciplina) {
     this.id = id;
+    this.x = x;
+    this.y = y; 
+    this.disciplina = disciplina;
   }
 
   normal = () => {
     return Math.sqrt(this.linkCount / APP_CONFIG.N);
-  }
-
-  get r() {
-    return 50 * this.normal() + 10;
-  }
-
-  get fontSize() {
-    return (30 * this.normal() + 10) + 'px';
   }
 
   get color() {
