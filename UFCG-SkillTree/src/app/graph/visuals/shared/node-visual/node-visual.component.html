@@ -1,13 +1,13 @@
 <svg:g [attr.transform]="'translate(' + node.x + ',' + node.y + ')'" id="nodeContainer">
     <svg:path [attr.d]='borderPath'
-              [style.fill]="'#003c71'">    
+              [style.fill]='node.borderColor(node.color)'>    
     </svg:path>
     <svg:path 
         [attr.d]='path'
         [style.fill]='node.color' class="disciplina">
     </svg:path>
     <svg:text
-        class="node-name" [style.stroke]="black">
+        class="node-name">
     {{node.disciplina}}
     </svg:text>
 </svg:g>

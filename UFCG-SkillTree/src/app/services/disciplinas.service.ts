@@ -11,7 +11,7 @@ export class DisciplinasService {
 
     constructor(private http: HttpClient){}
 
-    list(){
+    getDisciplines(){
         return this.http.get(this.API + '/subjects');
     }
 }

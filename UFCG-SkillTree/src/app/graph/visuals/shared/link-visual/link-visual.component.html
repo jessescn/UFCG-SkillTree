@@ -1,7 +1,9 @@
-<svg:line
-        class="link"
-        [attr.x1]="link.source.x"
-        [attr.y1]="link.source.y"
-        [attr.x2]="link.target.x"
-        [attr.y2]="link.target.y"
-></svg:line>
+<svg:path
+id="path" class="link" marker-end="url(#arrow)" [attr.d]="'M'+ link.source['x'] + ',' + link.source['y'] + 'L' + link.target['x'] + ',' + link.target['y']" 
+></svg:path>
+
+<svg:marker id="arrow" viewBox="0 -5 10 10" refX="26" markerHeight="60" markerWidth="15" orient="auto"
+            fill="#000000" >
+
+    <svg:path d="M 0,0 m -5,-5 L 5,0 L -5,5 Z"></svg:path>
+</svg:marker>
