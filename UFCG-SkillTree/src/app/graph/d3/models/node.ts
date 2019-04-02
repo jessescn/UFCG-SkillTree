@@ -7,17 +7,23 @@ export class Node implements d3.SimulationNodeDatum {
   y: number;
   r: number = 50;
   
-  disciplina: string;
+  nome: string;
+  categoria;
+  codigo;
+  dicas;
   periodo = Math.floor(Math.random() * 10);
+  pre_requisitos;
+  sigla;
   id: string;
   linkCount: number = Math.floor(Math.random() * 10);
+  
   childrens: Node[] = [];
 
   constructor(id, x, y, disciplina) {
     this.id = id;
     this.x = x;
     this.y = y; 
-    this.disciplina = disciplina;
+    this.nome = disciplina;
   }
 
   normal = () => {
