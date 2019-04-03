@@ -18,9 +18,9 @@ export class NetworkComponent {
   numberOfDisciplines: number;
 
   constructor(private service: DisciplinasService) {
-    service.getDisciplines().subscribe(disc => {
-      console.log(disc);
-    })
+    // service.getDisciplines().subscribe(disc => {
+    //   console.log(disc);
+    // })
 
     const NUMBER_OF_DISCIPLINES = this.disciplines.length;    
   

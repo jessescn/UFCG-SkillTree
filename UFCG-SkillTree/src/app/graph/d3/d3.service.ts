@@ -5,7 +5,7 @@ import * as d3 from 'd3';
 @Injectable()
 export class D3Service {
 
-  constructor() { }
+  constructor() {}
 
   applyZoomableBehaviour(svgElement, containerElement) {
     let svg, container, zoomed, zoom;
@@ -28,11 +28,11 @@ export class D3Service {
     function started() {     
       d3.event.sourceEvent.stopPropagation();
 
-      d3.event.on('drag', dragged);
-
       function dragged() {
-        node.x = d3.event.x;
-        node.y = d3.event.y;
+        node.x += d3.event.dx;
+        node.y += d3.event.dy;
+
+        d3.select(this).attr('cx', node.x).attr('cy', node.y);
       }
 
       d3.event.on('drag', dragged);
