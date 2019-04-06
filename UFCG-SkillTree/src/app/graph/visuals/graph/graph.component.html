@@ -3,13 +3,13 @@
     [attr.height]="_options.height"
     class="svg">
     <g [zoomableOf]="svg">
-    <g [linkVisual]="link"
-       clickable
+    <g [linkVisual]="link" class="link"
        *ngFor="let link of links">
     </g>
-    <g *ngFor="let node of nodes"
-       [nodeVisual]="node"
+    <g [nodeVisual]="node"
        [draggableNode]="node"
+       class="node"
+       *ngFor="let node of nodes"
        clickable>
     </g>
     </g>

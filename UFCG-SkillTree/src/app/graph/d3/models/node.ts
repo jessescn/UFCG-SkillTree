@@ -8,31 +8,31 @@ export class Node implements d3.SimulationNodeDatum {
   r: number = 50;
   
   nome: string;
-  categoria;
-  codigo;
-  dicas;
-  periodo = Math.floor(Math.random() * 10);
-  pre_requisitos;
-  sigla;
-  id: string;
-  linkCount: number = Math.floor(Math.random() * 10);
+  categoria: string;
+  codigo: string;
+  dicas: string;
+  periodo: number;
+  pre_requisitos: string;
+  sigla: string;
+  linkCount: number;
   
   childrens: Node[] = [];
 
-  constructor(id, x, y, disciplina) {
-    this.id = id;
+  constructor(nome, categoria, codigo, dicas, periodo, pre_requisitos, sigla, x, y) {
+    this.nome = nome;
+    this.categoria = categoria;
+    this.codigo = codigo;
+    this.dicas = dicas;
+    this.periodo = periodo;
+    this.pre_requisitos = pre_requisitos;
+    this.sigla = sigla;
     this.x = x;
     this.y = y; 
-    this.nome = disciplina;
-  }
-
-  normal = () => {
-    return Math.sqrt(this.linkCount / 6);
   }
 
   get color() {
-    let colors = d3.scaleOrdinal(d3.schemeSet3).domain(d3.range(0, 20));
-    return colors(this.id);
+    const colors = d3.scaleOrdinal(d3.schemeSet3).domain(d3.range(0, 9));
+    return colors(this.periodo);
   }
 
   borderColor(hex){

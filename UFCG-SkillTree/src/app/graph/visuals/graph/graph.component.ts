@@ -1,5 +1,5 @@
 import { Component, Input, ChangeDetectorRef, ChangeDetectionStrategy, OnInit } from '@angular/core';
-import { D3Service, ForceDirectedGraph, Node } from '../../d3';
+import { D3Service, ForceDirectedGraph, Node, Link } from '../../d3';
 
 @Component({
   selector: 'graph',
@@ -8,8 +8,8 @@ import { D3Service, ForceDirectedGraph, Node } from '../../d3';
   styleUrls: ['./graph.component.css']
 })
 export class GraphComponent implements OnInit {
-  @Input('nodes') nodes;
-  @Input('links') links;
+  @Input('nodes') nodes: Node[] = [];
+  @Input('links') links: Link[] = [];
   graph: ForceDirectedGraph;
   private _options: { width, height } = { width: 800, height: 600 };
 
@@ -26,4 +26,5 @@ export class GraphComponent implements OnInit {
       height: window.innerHeight - 55
     };
   }
+
 }

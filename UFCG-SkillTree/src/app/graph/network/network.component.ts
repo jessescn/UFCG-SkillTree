@@ -11,33 +11,47 @@ export class NetworkComponent {
 
   nodes: Node[] = [];
   links: Link[] = [];
-  disciplinas: string[] = ["Cadeiras de CC", "Calculo I", "Calculo II","Cálculo III", "Programação I", "Programação II", "Algebra linear",
-                 "Calculo I", "Calculo II","Cálculo III", "Programação I", "Programação II", "Algebra linear"];
   
-  disciplines = ["Cálculo I", "FMCC I", "Programação I", "Laboratório de Programação I", "Lingua Portuguesa"];
-  numberOfDisciplines: number;
+  disciplines = [{nome:"Cadeiras de CC",categoria:"", codigo:"",
+                  dicas:"", periodo:0, pre_requisitos:"",sigla: "Cadeiras",
+                  x:window.innerWidth/2, y:window.innerHeight/2 - 55}];
 
-  constructor(private service: DisciplinasService) {
-    // service.getDisciplines().subscribe(disc => {
-    //   console.log(disc);
-    // })
+  disciplinas;
 
-    const NUMBER_OF_DISCIPLINES = this.disciplines.length;    
-  
-    this.nodes.push(new Node(-1, window.innerWidth/2, window.innerHeight/2 - 55, "Cadeiras de CC"));
+  constructor(private disciplinaService: DisciplinasService) {
+    disciplinaService.getDisciplines().subscribe(disc => {
+      this.disciplinas = disc; 
+      this.updateNodes();                                                                           
+    })
+  }
 
-    for (let i = 0; i < NUMBER_OF_DISCIPLINES; i++) {
+  ngOnInit(){ 
+    this.nodes.push(this.getNewNode(this.disciplines[0], {x:this.disciplines[0].x, y:this.disciplines[0].y}));    
 
+    this.updateNodes();    
+  }
+
+  updateNodes(){
+    console.log(this.disciplinas);
+    
+    const NUMBER_OF_DISCIPLINES = this.disciplines.length;        
+    
+    for (let i = 1; i < NUMBER_OF_DISCIPLINES; i++) {
+      
       let numberOfChildrens = this.nodes[0].childrens.length;
       let position = this.getAvailablePosition(numberOfChildrens, this.nodes[0]);
 
-      let newNode = new Node(i, position.x, position.y, this.disciplines[i]);
+      let newNode = this.getNewNode(this.disciplines[i], position);
   
       this.nodes.push(newNode);
       this.links.push(new Link(this.nodes[0], newNode));
   
       this.nodes[0].childrens.push(newNode);
      }
+  }
+
+  getNewNode(node, position){
+    return new Node(node.nome, node.categoria, node.codigo, node.dicas, node.periodo, node.pre_requisitos, node.sigla, position.x, position.y);
   }
 
   getAvailablePosition(index: number, parentNode: Node){
@@ -54,13 +68,13 @@ export class NetworkComponent {
     const VERTICAL_HORIZONTAL_SUM = 400;
 
     if(index == 1){
-      position.x -= VERTICAL_HORIZONTAL_SUM;
+      position.x -= VERTICAL_HORIZONTAL_SUM + 50;
     }
     else if(index == 3){
-      position.y -= VERTICAL_HORIZONTAL_SUM;
+      position.y -= VERTICAL_HORIZONTAL_SUM - 75;
     }
     else if(index == 5){
-      position.x += VERTICAL_HORIZONTAL_SUM;
+      position.x += VERTICAL_HORIZONTAL_SUM + 25;
     }
     else{
       position.y += VERTICAL_HORIZONTAL_SUM;
@@ -70,22 +84,22 @@ export class NetworkComponent {
   }
 
   getDiagonalsPositions(index: number, position){
-    const DIAGONAL_SUM = 550;
+    const DIAGONAL_SUM = 400;
 
     if(index == 0){
-      position.y += DIAGONAL_SUM;
-      position.x -= DIAGONAL_SUM;
+      position.y += DIAGONAL_SUM + 50;
+      position.x -= DIAGONAL_SUM - 75;
     }
     else if(index == 2){
-      position.x -= DIAGONAL_SUM;
+      position.x -= DIAGONAL_SUM - 50;
       position.y -= DIAGONAL_SUM;
     }
     else if(index == 4){
-      position.x += DIAGONAL_SUM;
-      position.y -= DIAGONAL_SUM;
+      position.x += DIAGONAL_SUM + 75;
+      position.y -= DIAGONAL_SUM - 25;
     }else{
-      position.x += DIAGONAL_SUM;
-      position.y += DIAGONAL_SUM;
+      position.x += DIAGONAL_SUM + 10;
+      position.y += DIAGONAL_SUM + 25;
     }
 
     return position;
